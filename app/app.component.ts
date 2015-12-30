@@ -16,6 +16,7 @@ import 'rxjs/add/operator/map';
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </li>
     </ul>
+    <div *ngIf='instagramStuff'>{{instagramStuff}}</div>
     <my-hero-detail [hero]="selectedHero"></my-hero-detail>
   `,
   styles:[`
@@ -82,7 +83,6 @@ export class AppComponent implements OnInit {
       // Subscribe to the observable to get the parsed people object and attach it to the
       // component
       .subscribe(data => this.instagramStuff = data)
-      
    }
   getHeroes() {
     this._heroService.getHeroes().then(heroes => this.heroes = heroes);
